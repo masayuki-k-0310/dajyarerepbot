@@ -25,3 +25,4 @@ stream_client.user do |tweet|
         client.update("@#{tweet.user.screen_name}\n猫が寝込んだ！", options = {:in_reply_to_status_id => tweet.id})
       end
   end
+end
