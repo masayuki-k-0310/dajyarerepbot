@@ -1,5 +1,4 @@
 require "twitter"
-ENV['SSL_CERT_FILE'] = File.expand_path('./cacert.pem')
 
 client = Twitter::res::Client.new do |config|
    config.consumer_key       = ENV['MY_CONSUMER_KEY']
