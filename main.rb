@@ -1,5 +1,4 @@
 require "twitter"
-ENV['SSL_CERT_FILE'] = File.expand_path('./cacert.pem')
 
 client = Twitter::res::Client.new do |config|
    config.consumer_key       = ENV['MY_CONSUMER_KEY']
@@ -23,6 +22,7 @@ stream_client.user do |tweet|
     puts("-----")
     if tweet.text == "猫"
       client.update("@#{tweet.user.screen_name}\n猫が寝込んだ！", options = {:in_reply_to_status_id => tweet.id})
+      client.favorite(tweet.id)
     end
   end
 end
